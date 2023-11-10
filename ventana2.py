@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QMainWindow, QDesktopWidget, QLabel, QVBoxLayout, QS
     QButtonGroup, QPushButton
 from cliente import Cliente
 from ventana3 import Ventana3
+from ventana4 import Ventana4
 
 class Ventana2(QMainWindow):
     def __init__(self, anterior):
@@ -141,7 +142,9 @@ class Ventana2(QMainWindow):
         self.fondo.setLayout(self.vertical)
 
     def metodo_accionBotones(self, cedulaUsuario):
-        print(cedulaUsuario)
+        self.hide()
+        self.ventana4 = Ventana4(self, cedulaUsuario)
+        self.ventana4.show()
 
     def metodo_botonFormaTabular(self):
         self.hide()

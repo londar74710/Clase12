@@ -36,7 +36,7 @@ class Ventana3(QMainWindow):
 
         self.file = open("datos/cliente.txt", 'rb')
 
-        self.usuarios = []
+        usuarios = []
 
         while self.file:
             linea = self.file.readline().decode('UTF-8')
@@ -56,10 +56,10 @@ class Ventana3(QMainWindow):
                 lista[9],
                 lista[10],
             )
-            self.usuarios.append(u)
+            usuarios.append(u)
         self.file.close()
 
-        self.numeroUsuarios = len(self.usuarios)
+        self.numeroUsuarios = len(usuarios)
         self.contador = 0
 
         self.vertical = QVBoxLayout()
@@ -103,7 +103,7 @@ class Ventana3(QMainWindow):
                                              "Respuesta3"])
         self.tabla.setRowCount(self.numeroUsuarios)
 
-        for u in self.usuarios:
+        for u in usuarios:
             self.tabla.setItem(self.contador, 0, QTableWidgetItem(u.nombreCompleto))
             self.tabla.setItem(self.contador, 1, QTableWidgetItem(u.usuario))
             self.tabla.setItem(self.contador, 2, QTableWidgetItem(u.password))
